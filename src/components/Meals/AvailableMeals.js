@@ -41,12 +41,15 @@ const AvailableMeals = () => {
 	
 	useEffect(() => {
 		const fetchData = async() => {
-				const response = await fetch("https://react-http-c2fbf-default-rtdb.firebaseio.com/meals.json")
-				const responseData = await response.json()
+				const response = await fetch("https://practicefoodapp-default-rtdb.firebaseio.com/meals.json")
+				// const responseData = await response.json()
 				
 				if(!response.ok) {
 					throw new Error("Something went wrong!")
 				}
+
+				const responseData = await response.json()
+
 				const loadedMeals = []
 
 				for(let key in responseData) {
